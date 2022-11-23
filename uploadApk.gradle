@@ -1,0 +1,16 @@
+def apkPath = project.buildDir.absolutePath + "/outputs/apk/debug/app-debug.apk"
+uploadPgyParams {
+    apiKey = PgyApiKey
+    buildTypeName = "Release"
+    buildInstallType = 1
+    uploadApkFilePath = apkPath
+    buildUpdateDescription = "测试 init"
+}
+
+buildWXGroupMsgParams {
+    webHookUrl = WXWebHookUrl
+    msgType = "markdown"
+    isAtAll = true
+    contentTitle = "开发测试包"
+    contentText = "最新开发测试包已经上传至蒲公英, 可以下载使用了"
+}
